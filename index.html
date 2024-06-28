@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CORS Proxy</title>
+</head>
+<body>
+  <script>
+    async function fetchData() {
+      const url = 'http://173.249.10.18:4455/antigen-predict';
+      const proxyUrl = 'https://JavierJamaicaEPM.github.io/proxy-public/proxy?url=';
+
+      try {
+        const response = await fetch(proxyUrl + encodeURIComponent(url));
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+
+    fetchData();
+  </script>
+</body>
+</html>
